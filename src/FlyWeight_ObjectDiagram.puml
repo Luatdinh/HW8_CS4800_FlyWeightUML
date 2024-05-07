@@ -1,0 +1,137 @@
+@startuml
+object "testDocument:Document" as doc {
+  characters = ['H','e','l','l','o','W','o','r','l','d','C','S','5','8','0','0']
+}
+
+object "propertiesFactory:CharacterPropertiesFactory" as cpf {
+  flyweights = HashMap[("Arial_Black_16"), ("Arial_Black_14"), ("Veranda_Blue_18"), ("Veranda_Red_12")]
+}
+
+object "flyweights[Arial_Black_16]:CharacterProperties" as ab16cp {
+  font = "Arial"
+  color = "Black"
+  size = 16
+}
+
+object "flyweights[Arial_Black_14]:CharacterProperties" as ab14cp {
+  font = "Arial"
+  color = "Black"
+  size = 14
+}
+
+object "flyweights[Veranda_Blue_18]:CharacterProperties" as vb18cp {
+  font = "Verdana"
+  color = "Blue"
+  size = 18
+}
+
+object "flyweights[Veranda_Red_12]:CharacterProperties" as vr12cp {
+  font = "Verdana"
+  color = "Red"
+  size = 12
+}
+
+object "characters[0]:Character" as Hc {
+  character = 'H'
+}
+
+object "characters[1]:Character" as ec {
+  character = 'e'
+}
+
+object "characters[2]:Character" as l1c {
+  character = 'l'
+}
+
+object "characters[3]:Character" as l2c {
+  character = 'l'
+}
+
+object "characters[4]:Character" as oc {
+  character = 'o'
+}
+
+object "characters[5]:Character" as Wc {
+  character = 'W'
+}
+
+object "characters[6]:Character" as oc2 {
+  character = 'o'
+}
+
+object "characters[7]:Character" as rc {
+  character = 'r'
+}
+
+object "characters[8]:Character" as l3c {
+  character = 'l'
+}
+
+object "characters[9]:Character" as dc {
+  character = 'd'
+}
+
+object "characters[10]:Character" as Cc {
+  character = 'C'
+}
+
+object "characters[11]:Character" as Sc {
+  character = 'S'
+}
+
+object "characters[12]:Character" as fc {
+  character = '5'
+}
+
+object "characters[13]:Character" as 8c {
+  character = '8'
+}
+
+object "characters[14]:Character" as z1c {
+  character = '0'
+}
+
+object "characters[15]:Character" as z2c {
+  character = '0'
+}
+
+doc *-- Hc : own a >
+doc *-- ec : own a >
+doc *-- l1c : own a >
+doc *-- l2c : own a >
+doc *-- oc : own a >
+doc *-- Wc : own a >
+doc *-- oc2 : own a >
+doc *-- rc : own a >
+doc *-- l3c : own a >
+doc *-- dc : own a >
+doc *-- Cc : own a >
+doc *-- Sc : own a >
+doc *-- fc : own a >
+doc *-- 8c : has a >
+doc *-- z1c : own a >
+doc *-- z2c : own a >
+doc *-- cpf : own a >
+
+cpf o-- ab16cp : has a >
+cpf o-- ab14cp : has a >
+cpf o-- vb18cp : has a >
+cpf o-- vr12cp : has a >
+
+Hc o-- ab16cp : has a >
+ec o-- ab14cp : has a >
+l1c o-- ab14cp : has a >
+l2c o-- ab14cp : has a >
+oc o-- ab14cp : has a >
+Wc o-- ab16cp : has a >
+oc2 o-- ab14cp : has a >
+rc o-- ab14cp : has a >
+l3c o-- ab14cp : has a >
+dc o-- ab14cp : has a >
+Cc o-- vb18cp : has a >
+Sc o-- vb18cp : has a >
+fc o-- vr12cp : has a >
+ec o-- vr12cp : has a >
+z1c o-- vr12cp : has a >
+z2c o-- vr12cp : has a >
+@enduml
